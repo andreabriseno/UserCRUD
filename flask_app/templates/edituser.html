@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .everything{
+            text-align: center;
+            padding: 20px;
+        }
+        .all{
+            border: 2px solid black;
+            padding: 20px;
+        }
+        .info{
+            font-size: 20px;
+            padding: 10px;
+        }
+        .btnn{
+            padding: 10px;
+            font-size: 15px;
+        }
+    </style>
+    <title>Edit User</title>
+</head>
+
+<body>
+    <div class="everything">
+        <form action="/users/create" method="post">
+            <h1> Edit User {{user['first_name']}} </h1>
+            <input type="hidden" name="id" value="{{user['id']}}">
+            <div class="info">
+                <label for="first_name">First Name:</label>
+                <input type="text" name="first_name" value="{{user.first_name}}">
+            </div>
+            <div class="info">
+                <label for="last_name">Last Name:</label>
+                <input type="text" name="last_name" value="{{user.last_name}}">
+            </div>
+            <div class="info">
+                <label for="email">Email:</label>
+                <input type="text" name="email" value="{{user.email}}">
+            </div>
+            <div class="btnn">
+            <input type="submit" value="Add User">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

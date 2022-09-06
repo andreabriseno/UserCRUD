@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width, initial-scale=1.0">
+    <style>
+        .everything{
+            width: auto;
+            height: auto;
+            border: 3px solid seagreen;
+            padding: 25px;
+        }
+        h1{
+            text-align: center;
+            color: blue;
+        }
+        table{
+            margin-left: auto;
+            margin-right: auto;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th{
+            background-color: lightblue;
+            padding: 10px;
+            border: 2px solid teal;
+            text-align: center;
+            width: auto;
+            height: auto;
+        }
+        td{
+            padding: 10px;
+            border: 2px solid teal;
+            text-align: center;
+            width: auto;
+            height: auto;
+        }
+        .a-ta{
+            text-align: center;
+        }
+    </style>
+    
+    <title>Users</title>
+</head>
+<body>
+    <div class="everything">
+        <h1 class="header"> All Users</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Created At</th>
+                    <th>Updated At</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                <tr>
+                    <td>{{user['id']}}</td>
+                    <td>{{user['first_name']}}</td>
+                    <td>{{user['last_name']}}</td>
+                    <td>{{user['email']}}</td>
+                    <td>{{user['created_at']}}</td>
+                    <td>{{user['updated_at']}}</td>
+                    <td>
+                        <a href="/user/show/{{user.id}}"> Show </a>
+                        <a href="/user/edit/{{user.id}}"> Edit </a>
+                        <a href="/user/delet/{{user.id}}"> Delete </a>
+                    </td>
+                </tr>
+                {% endfor%}
+            </tbody>
+        </table>
+        <div class="a-ta">
+            <a href="/users/add" class="atag"> Add a user</a>
+        </div>
+    </div>
+</body>
+</html>
